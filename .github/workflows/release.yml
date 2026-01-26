@@ -70,7 +70,8 @@ jobs:
         shell: bash
         run: |
           set -euxo pipefail
-          choco install -y webview4
+          # WebView2 Runtime is pre-installed on windows-2022 runner
+          # No additional installation needed
           rustup target add ${{ matrix.target }}
 
       - name: Install frontend deps
