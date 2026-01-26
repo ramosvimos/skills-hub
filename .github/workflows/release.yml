@@ -87,8 +87,8 @@ jobs:
 
           const raw = (process.env.RAW_KEY || '').trim();
           if (!raw) {
-            console.error('❌ 缺少 Secret：TAURI_SIGNING_PRIVATE_KEY');
-            process.exit(1);
+            console.warn('⚠️ 未配置 TAURI_SIGNING_PRIVATE_KEY，将生成未签名版本');
+            process.exit(0);
           }
 
           const looksLikeBase64 = (s) => /^[A-Za-z0-9+/=]+$/.test(s);
