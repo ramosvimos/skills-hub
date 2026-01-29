@@ -200,7 +200,9 @@ jobs:
             echo "ℹ️ 未配置 APPLE_SIGNING_IDENTITY，构建未签名版本"
             unset APPLE_SIGNING_IDENTITY
           fi
-          npm run tauri:build -- --target ${{ matrix.target }} --bundles app,dmg
+          # Without a signing key in repo secrets, updater artifacts/signing can fail on macOS.
+          # Build an unsigned bundle/installer so Releases can still be produced for forks.
+          npm run tauri:build -- --target ${{ matrix.target }} --bundles app,dmg --no-sign
           echo "=== Build completed ==="
           ls -la src-tauri/target/${{ matrix.target }}/release/bundle/ || true
 

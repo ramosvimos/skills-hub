@@ -1,10 +1,10 @@
 [package]
 name = "app"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Tauri App"
 authors = ["you"]
 license = ""
-repository = "git@github.com:qufei1993/skills-hub.git"
+repository = "git@github.com:ramosvimos/skills-hub.git"
 edition = "2021"
 rust-version = "1.77.2"
 
